@@ -8,10 +8,10 @@ class Student:
         self.grades = {}
 
     def add_courses(self, course_name):
-        self.finished_course.append(course_name)
+        self.finished_courses.append(course_name)
 
     def rate_lection(self, lector, course, grade):
-        if isinstance(lector, Lector) and course in self.courses.attached and course in lector.lection_grades:
+        if isinstance(lector, Lector) and course in self.courses_in_progress and course in lector.lection_grades:
             if course in lector.grades:
                 lector.grades[course] += [grade]
             else:
@@ -72,6 +72,7 @@ class Lector(Mentor):
 class Reviewer(Mentor):
     def __init__(self, name, surname):
         super().__init__(name, surname)
+        self.courses_attached = []
 
     def rate_hw(self, student, course, grade):
         if isinstance(student, Student) and course in self.courses_attached and course in student.courses_in_progress:
@@ -94,13 +95,14 @@ nice_student.courses_in_progress += ['Git', 'Python']
 
 
 Nice_reviewer = Reviewer('Ivan', 'Ivanov')
+Nice_reviewer.courses_attached += ['Python']
 Nice_reviewer.rate_hw(best_student, ['Python'], 9)
-Nice_reviewer.rate_hw(nice_student, ['Git', 8])
+Nice_reviewer.rate_hw(nice_student, ['Git'], 8)
 
 Nice_lector = Lector('Alexandr', "Alexandrov")
 Good_lector = Lector('Andrey', 'Andreyev')
-best_student.rate_lection(Nice_lector, 'Python', 10)
-nice_student.rate_lection(Good_lector, 'Python', 9)
-print(Nice_lector)
+#best_student.rate_lection(Nice_lector, 'Python', 10)
+#nice_student.rate_lection(Good_lector, 'Python', 9)
+print(Nice_reviewer)
 print(best_student)
 
