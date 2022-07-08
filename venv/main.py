@@ -101,8 +101,33 @@ Nice_reviewer.rate_hw(nice_student, ['Git'], 8)
 
 Nice_lector = Lector('Alexandr', "Alexandrov")
 Good_lector = Lector('Andrey', 'Andreyev')
-#best_student.rate_lection(Nice_lector, 'Python', 10)
-#nice_student.rate_lection(Good_lector, 'Python', 9)
+best_student.rate_lection(Nice_lector, 'Python', 10)
+nice_student.rate_lection(Good_lector, 'Python', 9)
+
+students = [best_student, nice_student]
+lectors = [Nice_lector, Good_lector]
+
+def av_students(students):
+    new_list = []
+    for student in students:
+        for grade in student.grades:
+            new_list.extend(grade)
+    result = sum(new_list) / len(new_list)
+    self.avg_grade = result
+    return result
+
+def av_lectors(lectors):
+    new_list = []
+    for lector in lectors:
+        for grade in lector.grades:
+            new_list.extend(grade)
+    result = sum(new_list) / len(new_list)
+    self.avg_grade = result
+    return result
+
+students_avg = av_students(students)
+lectors_avg = av_lectors(lectors)
+
 print(Nice_reviewer)
 print(best_student)
 
