@@ -44,7 +44,7 @@ class Mentor:
 class Lector(Mentor):
     def __init__(self, name, surname):
         super().__init__(name, surname)
-        self.grades = {'Python': [10, 10, 9]}
+        self.grades = {}
 
     def __str__(self):
         res = f'Имя: {self.name} \nФамилия: {self.surname} \nСредняя оценка за лекции: {self._avg_grade()}'
