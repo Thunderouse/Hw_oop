@@ -63,7 +63,7 @@ class Lector(Mentor):
         if not isinstance(other, Lector):
             print('Можно сравнивать только Лекторов!')
             return
-        elif self.average_grade_of_lector() > other.average_grade_of_lector():
+        elif self._avg_grade() > other._avg_grade():
             return f'\n{self.name} {self.surname} имеет среднюю оценку за лекции выше чем {other.name} {other.surname}'
         else:
             return f'\n{other.name} {other.surname} имеет среднюю оценку за лекции выше чем {self.name} {self.surname}'
@@ -130,5 +130,5 @@ def av_lectors(lectors):
 #students_avg = av_students(students)
 #lectors_avg = av_lectors(lectors)
 
-print(Nice_reviewer)
+print(Nice_lector > Good_lector)
 print(best_student)
