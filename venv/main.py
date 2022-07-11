@@ -93,11 +93,10 @@ best_student.courses_in_progress += ['Python']
 nice_student = Student('Vladimir', 'Ivanov', 'male')
 nice_student.courses_in_progress += ['Git', 'Python']
 
-
 Nice_reviewer = Reviewer('Ivan', 'Ivanov')
 Nice_reviewer.courses_attached += ['Python']
-Nice_reviewer.rate_hw(best_student, ['Python'], 9)
-Nice_reviewer.rate_hw(nice_student, ['Git'], 8)
+Nice_reviewer.rate_hw(best_student, 'Python', 9)
+Nice_reviewer.rate_hw(nice_student, 'Git', 8)
 
 Nice_lector = Lector('Alexandr', "Alexandrov")
 Good_lector = Lector('Andrey', 'Andreyev')
@@ -107,27 +106,29 @@ nice_student.rate_lection(Good_lector, 'Python', 9)
 students = [best_student, nice_student]
 lectors = [Nice_lector, Good_lector]
 
-def av_students(students):
+
+def av_students(students_list):
     new_list = []
-    for student in students:
+    for student in students_list:
         for grade in student.grades:
             new_list.extend(grade)
     result = sum(new_list) / len(new_list)
     self.avg_grade = result
     return result
 
+
 def av_lectors(lectors):
     new_list = []
     for lector in lectors:
         for grade in lector.grades:
-            new_list.extend(grade)
+            new_list.extendint(grade)
     result = sum(new_list) / len(new_list)
     self.avg_grade = result
     return result
 
-students_avg = av_students(students)
-lectors_avg = av_lectors(lectors)
+
+#students_avg = av_students(students)
+#lectors_avg = av_lectors(lectors)
 
 print(Nice_reviewer)
 print(best_student)
-
