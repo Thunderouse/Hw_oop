@@ -110,25 +110,26 @@ lectors = [Nice_lector, Good_lector]
 def av_students(students_list):
     new_list = []
     for student in students_list:
-        for grade in student.grades:
+        for grade in student.grades.values():
             new_list.extend(grade)
     result = sum(new_list) / len(new_list)
-    self.avg_grade = result
     return result
 
 
 def av_lectors(lectors):
     new_list = []
     for lector in lectors:
-        for grade in lector.grades:
-            new_list.extendint(grade)
+        for grade in lector.grades.values():
+            new_list.extend(grade)
     result = sum(new_list) / len(new_list)
-    self.avg_grade = result
     return result
 
 
-#students_avg = av_students(students)
-#lectors_avg = av_lectors(lectors)
+students_avg = av_students(students)
+lectors_avg = av_lectors(lectors)
 
-print(Nice_lector > Good_lector)
+print(f'Средняя оценка студентов {students_avg}')
+print(f'Средняя оценка лекторов {lectors_avg}')
 print(best_student)
+print(Nice_lector)
+print(Nice_lector > Good_lector)
